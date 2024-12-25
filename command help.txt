@@ -1,0 +1,15 @@
+#Node Commands
+npm install express
+
+
+
+#Git For Å Starte Med Terminal For Jeg Husker Ikke
+git init
+
+#En Av Disse Tror Jeg
+git clone https://github.com/Credypt/tankekonk.git
+git remote add origin https://github.com/Credypt/tankekonk.git
+
+git add .
+git commit -m "initial commit"
+git push origin main
