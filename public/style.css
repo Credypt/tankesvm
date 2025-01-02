@@ -1,0 +1,70 @@
+* {
+    font-family: "Jaldi", serif;
+    /*Remove scrollbars*/
+    overflow: hidden;
+    scrollbar-width: none;
+
+    margin: 0;
+    padding: 0;
+
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+div.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: none;
+}
+
+#main_menu {
+    background-image: url('images/main_menu.jpg');
+    display: block;
+}
+
+#selection_area {
+    background-image: url('images/selection.jpg');
+}
+
+#intermission {
+    background-image: url('images/intermission.jpg');
+}
+
+#stop_area {
+    background-image: url('images/stop_area.jpg');
+}
+
+#end_menu {
+    background-image: url('images/end_menu.jpg');
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+    font-size: 5rem;
+    color: whitesmoke;
+    text-shadow: 3px 3px 20px black;
+}
+
+p {
+    position: relative;
+    text-align: center;
+    font-size: 2rem;
+    color: whitesmoke;
+    text-shadow: 3px 3px 20px black;
+}
+
+button {
+    position: relative;
+    font-size: 2rem;
+    width: 100%;
+}

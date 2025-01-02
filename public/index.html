@@ -1,68 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="manifest" href="manifest.json" />
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Tankesvøm</title>
+
+    <meta name="description" content="Svømmevisualisering">
+    <meta name="author" content="Credypt">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-    * {
-    font-family: "Jaldi", serif;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    }
+    <link rel="stylesheet" href="style.css">
 
-    div {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('images/pexels-aldair-donaldo-ordonez-de-yta-473906839-18167960.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    }
-
-    h1 {
-    position: relative;
-    top: 10vh;
-    text-align: center;
-    font-size: 10vw;
-    color: whitesmoke;
-    text-shadow: 3px 3px 20px black;
-    }
-
-    p {
-    position: relative;
-    text-align: center;
-    font-size: 5vw;
-    color: whitesmoke;
-    text-shadow: 3px 3px 20px black;
-    }
-
-    button {
-    position: relative;
-    margin: 3rem;
-    font-size: 2rem;
-    padding: auto;
-    }
-
-    </style>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
-<body>
 
-<div>
+<body>
+<main>
+
+<div class="bg" id="main_menu">
 <h1>Tankesvøm</h1>
 <p>Et imaginært stevne</p>
-<button>Start</button>
+<button onclick="change_menu('selection_area');">>>> Start >>></button>
 </div>
+
+<div class="bg" id="selection_area">
+<p>Du står på kanten med konkurransetøy. Hvilken tid ønsker du å oppnå?</p>
+<form action="">
+<p>Øvelse</p>
+<input type="radio">
+<p>Tid</p>
+<input type="radio">
+</form>
+<button onclick="change_menu('intermission');">Fortsett</button>
+<p>!Denne opplevelsen krever lyd!</p>
+</div>
+
+<div class="bg" id="intermission">
+<p>Du har varmet opp og er klar til å svømme ?. Dommeren er i ferd med å starte heatet ditt. Lukk øynene dine til du har visualisert deg ferdig med å svømme.</p>
+<button onclick="change_menu('stop_area');">Forstår</button>
+</div>
+
+<div class="bg" id="stop_area">
+<button onclick="change_menu('end_menu');">Ferdig med å svømme</button>
+</div>
+
+<div class="bg" id="end_menu">
+<p>Du svømte på ?</p>
+<p>Du trodde på forhånd at du kom til å svømme på ?</p>
+<p>Det er en differanse på ?</p>
+<p>Din laveste differanse denne sesjonen er ?</p>
+<button onclick="change_menu('selection_area');">Prøv igjen</button>
+<button onclick="change_menu('main_menu');">Hovedmeny</button>
+</div>
+
+</main>
+
+<script type="text/javascript">
+
+let area = "main_menu";
+
+function change_menu(menu) {
+    document.getElementById(area).style.display = "none";
+    document.getElementById(menu).style.display = "block";
+    area = menu;
+}
+</script>
 
 </body>
 </html>

@@ -5,9 +5,7 @@ Ctrl + Shift + ø
 npm init --y
 npm install express
 
-#Git start
-git init
-git clone https://github.com/Credypt/tankesvm.git
+node app
 
 #Git push
 git add .
@@ -17,3 +15,6 @@ git push origin main
 
 #annet (ikke bruk)
 git remote add origin https://github.com/Credypt/tankesvm.git
+#Git start
+git init
+git clone https://github.com/Credypt/tankesvm.git
