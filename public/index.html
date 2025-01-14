@@ -38,19 +38,23 @@
 </div>
 
 <div class="bg" id="selection_area">
-<p>Du står på kanten med konkurransetøy. Hvilken tid ønsker du å oppnå?</p>
-<form action="">
-<p>Øvelse</p>
-<input type="radio">
-<p>Tid</p>
-<input type="radio">
+<div class="hovering">
+    <p>Du står på kanten med konkurransetøy. Hvilken tid ønsker du å oppnå?</p>
+    <form action="">
+    <p>Øvelse</p>
+    <input type="radio">
+    <p>Tid</p>
+    <input type="radio">
+</div>
 </form>
 <button onclick="change_menu('intermission');">Fortsett</button>
 <p>!Denne opplevelsen krever lyd!</p>
 </div>
 
 <div class="bg" id="intermission">
-<p>Du har varmet opp og er klar til å svømme ?. Dommeren er i ferd med å starte heatet ditt. Lukk øynene dine til du har visualisert deg ferdig med å svømme.</p>
+<div class="hovering">
+    <p>Du har varmet opp og er klar til å svømme ?. Dommeren er i ferd med å starte heatet ditt. Lukk øynene dine til du har visualisert deg ferdig med å svømme.</p>
+</div>
 <button onclick="change_menu('stop_area');">Forstår</button>
 </div>
 
@@ -59,10 +63,12 @@
 </div>
 
 <div class="bg" id="end_menu">
-<p>Du svømte på ?</p>
-<p>Du trodde på forhånd at du kom til å svømme på ?</p>
-<p>Det er en differanse på ?</p>
-<p>Din laveste differanse denne sesjonen er ?</p>
+<div class="hovering">
+    <p>Du svømte på ?</p>
+    <p>Du trodde på forhånd at du kom til å svømme på ?</p>
+    <p>Det er en differanse på ?</p>
+    <p>Din laveste differanse denne sesjonen er ?</p>
+</div>
 <button onclick="change_menu('selection_area');">Prøv igjen</button>
 <button onclick="change_menu('main_menu');">Hovedmeny</button>
 </div>
