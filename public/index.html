@@ -15,6 +15,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap" rel="stylesheet">
 
+    <link rel="preload" as="image" href="images/end_menu.jpg" />
+    <link rel="preload" as="image" href="images/intermission.jpg" />
+    <link rel="preload" as="image" href="images/main_menu.jpg" />
+    <link rel="preload" as="image" href="images/selection.jpg" />
+    <link rel="preload" as="image" href="images/stop_area.jpg" />
+
     <link rel="stylesheet" href="style.css">
 
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -24,8 +30,10 @@
 <main>
 
 <div class="bg" id="main_menu">
-<h1>Tankesvøm</h1>
-<p>Et imaginært stevne</p>
+<div class="hovering">
+    <h1>Tankesvøm</h1>
+    <p>Et imaginært stevne</p>
+</div>
 <button onclick="change_menu('selection_area');">>>> Start >>></button>
 </div>
 

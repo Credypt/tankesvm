@@ -1,3 +1,10 @@
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+    --black: #000000;
+    --transparent: #88a6a782;
+  } 
+
 * {
     font-family: "Jaldi", serif;
     /*Remove scrollbars*/
@@ -7,6 +14,12 @@
     margin: 0;
     padding: 0;
 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 *::-webkit-scrollbar {
@@ -24,6 +37,18 @@ div.bg {
     background-size: cover;
     background-position: center;
     display: none;
+}
+
+body::before {
+    content: url('images/main_menu.jpg');
+    content: url('images/selection.jpg');
+    content: url('images/intermission.jpg');
+    content: url('images/stop_area.jpg');
+    content: url('images/end_menu.jpg');
+    position: absolute;
+    top: -9999rem;
+    left: -9999rem;
+    opacity: 0;
 }
 
 #main_menu {
@@ -51,20 +76,52 @@ h1 {
     position: relative;
     text-align: center;
     font-size: 5rem;
-    color: whitesmoke;
-    text-shadow: 3px 3px 20px black;
+    color: var(--white);
+    text-shadow: 3px 3px 20px var(--black);
 }
 
 p {
     position: relative;
     text-align: center;
     font-size: 2rem;
-    color: whitesmoke;
-    text-shadow: 3px 3px 20px black;
+    color: var(--white);
+    text-shadow: 3px 3px 15px var(--black);
 }
 
+
 button {
-    position: relative;
-    font-size: 2rem;
-    width: 100%;
+  appearance: button;
+  position: relative;
+  width: calc(100vw - 40px);
+  margin: 20px;
+  user-select:contain;
+  background-color: #4D4AE8;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+  border: 0px solid #4D4AE800;
+  border-radius: 20px;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset,rgba(46, 54, 80, 0.075) 0 1px 1px;
+  color: var(--white);
+  line-height: 1.5;
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+button:hover {
+  background-color: #5d5ae8;
+}
+
+button:active {
+  background-color: rgb(66, 99, 210);
+  box-shadow: rgba(255, 255, 255, 0.186) 0 3px 10px inset;
+}
+
+.hovering {
+    backdrop-filter: blur(15px);
+    background-color: var(--transparent);
+    border-radius: 10px;
+    margin: 20px;
 }
