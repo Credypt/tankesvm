@@ -1,6 +1,9 @@
 #Open Terminal
 Ctrl + Shift + ø
 
+#open new repo
+ctrl + shift + N
+
 #Node Commands
 npm init --y
 npm install express

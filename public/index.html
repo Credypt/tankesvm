@@ -40,14 +40,20 @@
 <div class="bg" id="selection_area">
 <div class="hovering">
     <p>Du står på kanten med konkurransetøy. Hvilken tid ønsker du å oppnå?</p>
-    <label for="fname">Øvelse</label>
-    <input type="text" id="fname" name="fname" placeholder="100 cr/fly/ry/br"><br><br>
-    <label for="lname">Tid</label>
-    <input type="text" id="lname" name="lname" placeholder="01.05,32"><br><br>
+    <div class="centered-area">
+        <label for="fname">Øvelse</label>
+        <input type="text" id="fname" name="fname" placeholder="[50 cr/fly/ry/br]"><br><br>
+    </div>
+    <div class="centered-area">
+        <label for="lname">Tid</label>
+        <input type="text" id="lname" name="lname" placeholder="[01.05,32]"><br><br>
+    </div>
 </div>
 </form>
 <button onclick="change_menu('intermission');">Fortsett</button>
-<p class="important">!Denne opplevelsen krever lyd!</p>
+<div class="hovering">
+    <p class="important">!Denne opplevelsen krever lyd!</p>
+</div>
 </div>
 
 <div class="bg" id="intermission">
