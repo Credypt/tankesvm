@@ -1,0 +1,83 @@
+:root {
+    --white: #f4f4f4;
+    --bg: #000000;
+    --maincolor: #f4f4f4;
+  } 
+
+* {
+    font-family: sans-serif;
+    /*Remove scrollbars*/
+    overflow: hidden;
+    scrollbar-width: none;
+    background-color: var(--bg);
+    color: var(--maincolor);
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 2rem;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    max-width: 960px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: lighter;
+    text-align: center;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+button {
+    font-size: 1.5rem;
+    position: relative;
+    top: 0%;
+    left: 50%;
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+#main_menu {
+    display: block;
+}
+
+#selection_area {
+    display: none;
+}
+
+#intermission {
+    display: none;
+}
+
+#stop_area {
+    display: none;
+}
+
+#end_menu {
+    display: none;
+}
+
+.center {
+    text-align: ;
+}
