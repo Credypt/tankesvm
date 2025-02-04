@@ -5,14 +5,14 @@
     
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <title>title</title>
+        <title>Tankesvøm</title>
     
-        <meta name="description" content="Desc">
-        <meta name="author" content="author">
+        <meta name="description" content="Et imaginært stevne">
+        <meta name="author" content="grentren">
     
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     
         <link as="image" href="assets/images/curry.jpg.jpg" />
     
@@ -29,33 +29,51 @@
     <button onclick="change_menu('selection_area');">>>>start>>></button>
 </div>
 <div id="selection_area">
-    <button onclick="change_menu('intermission');">Fortsett</button>
+    <button onclick="change_menu('intermission');">>>></button>
 </div>
 <div id="intermission">
-    <button onclick="change_menu('stop_area');">Forstår</button>
+    <div id="countdown">3</div>
 </div>
 <div id="stop_area">
-    <p id="timerDisplay" class="center"></p>
+    <p id="timerDisplay" class="timer center"></p>
     <button onclick="change_menu('end_menu');">Ferdig med å svømme</button>
 </div>
 <div id="end_menu">
-    <p id="timerFinal" class="center"></p>
+    <p id="timerDisplay2" class="timer center"></p>
     <button onclick="change_menu('selection_area');">Prøv igjen</button><br>
-    <button onclick="change_menu('main_menu');">Hovedmeny</button>
 </div>
 
 </main>
 
 <script type="text/javascript">
+
+let area = "main_menu";
+let delta = 0;
+let start = 0;
     
-    let area = "main_menu";
-    let delta = 0;
-    let start = 0;
-    
+    setTimeout(fade_in, 1000);
+
+    function fade_out() {
+        document.querySelector('body').style.opacity = 0;
+    }
+
+    function fade_in() {
+        document.querySelector('body').style.opacity = 1;
+    }
+
     function change_menu(menu) {
+        fade_out();
+        setTimeout(() => menu_logic(menu), 500);
+        setTimeout(fade_in, 500);
+    }
+
+    function menu_logic(menu) {
         document.getElementById(area).style.display = "none";
         document.getElementById(menu).style.display = "block";
         area = menu;
+        if (area === "intermission") {
+            document.getElementById("initalStroke").innerHTML=2;
+        }
         if (area === "stop_area") {
             start_timer();
         }
@@ -69,15 +87,17 @@
             document.getElementById("initalTime").innerHTML=initialTime;
         }
     }
-    
+
     function start_timer() {
         start = Date.now();
         var timer = setInterval(function(){
             delta = Date.now() - start;
             update_timer(delta, "timerDisplay");
+            update_timer(delta, "timerDisplay2");
             if (area === "end_menu") {
                 clearInterval(timer);
-                update_timer(delta, "timerFinal");
+                delta = 0;
+                start = 0;
             }
         }, 10);
     }
