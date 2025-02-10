@@ -58,17 +58,42 @@ h2 {
 
 p {
     font-size: 1.5rem;
+    margin: 1rem;
+}
+
+p.i {
+    margin: 1rem;
+}
+
+input {
+    float: right;
+    font-size: 0.75rem;
+    padding: 0.25rem;
+    margin: 0 1rem 0 0;
+}
+
+label {
+    float: left;
+    font-size: 1rem;
+    margin: 0 0 0 1rem;
 }
 
 button {
     font-size: 1.5rem;
     position: absolute;
     outline: solid 1px white;
+    border: none;
     padding: 0.5rem;
     bottom: 10vh;
     left: 50%;
     -ms-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
+
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #242424;
 }
 
 #main_menu {

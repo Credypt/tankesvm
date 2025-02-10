@@ -26,13 +26,18 @@
 <div id="main_menu">
     <h1>Tankesvøm</h1>
     <h2>et imaginært stevne</h2>
-    <button onclick="change_menu('selection_area');">>>>start>>></button>
+    <button onclick="change_menu('selection_area');">>>> start >>></button>
 </div>
 <div id="selection_area">
+    <p class="i">Hva ønsker du å svømme?</p>
+    <label for="str">Øvelse</label>
+    <input type="text" id="strInput" name="str" placeholder=""><br>
+    <label for="str">Tid</label>
+    <input type="text" id="timeInput" name="time" placeholder="">
     <button onclick="change_menu('intermission');">>>></button>
 </div>
 <div id="intermission">
-    <div id="countdown">3</div>
+    <div id="countdown"></div>
 </div>
 <div id="stop_area">
     <p id="timerDisplay" class="timer center"></p>
@@ -48,9 +53,17 @@
 <script type="text/javascript">
 
 let area = "main_menu";
-let delta = 0;
-let start = 0;
-    
+let timerOn;
+let delta;
+let start;
+
+let strPlaceholder = "[100m cr/fly/ry/br/im]";
+let timePlaceholder = "[01,03.42]";
+
+document.getElementById("strInput").placeholder = strPlaceholder;
+document.getElementById("timeInput").placeholder = timePlaceholder;
+
+
     setTimeout(fade_in, 1000);
 
     function fade_out() {
@@ -62,6 +75,9 @@ let start = 0;
     }
 
     function change_menu(menu) {
+        if (menu === "end_menu") {
+            timerOn = false;
+        }
         fade_out();
         setTimeout(() => menu_logic(menu), 500);
         setTimeout(fade_in, 500);
@@ -72,7 +88,13 @@ let start = 0;
         document.getElementById(menu).style.display = "block";
         area = menu;
         if (area === "intermission") {
-            document.getElementById("initalStroke").innerHTML=2;
+            document.getElementById("countdown").innerHTML=3;
+            setTimeout(() => document.getElementById("countdown").innerHTML=2, 1000);
+            setTimeout(() => document.getElementById("countdown").innerHTML=1, 2000);
+            setTimeout(() => document.getElementById("countdown").innerHTML="Lukk øynene", 3000);
+            setTimeout(fade_out, 4000);
+            setTimeout(() => change_menu("stop_area"), 6000);
+            
         }
         if (area === "stop_area") {
             start_timer();
@@ -85,19 +107,21 @@ let start = 0;
             console.log(stroke, initialTime);
             document.getElementById("initalStroke").innerHTML=stroke;
             document.getElementById("initalTime").innerHTML=initialTime;
+
+            document.getElementById("countdown").innerHTML=3;
         }
     }
 
     function start_timer() {
+        timerOn = true;
+        delta = 0;
         start = Date.now();
         var timer = setInterval(function(){
             delta = Date.now() - start;
             update_timer(delta, "timerDisplay");
             update_timer(delta, "timerDisplay2");
-            if (area === "end_menu") {
+            if (!timerOn) {
                 clearInterval(timer);
-                delta = 0;
-                start = 0;
             }
         }, 10);
     }
