@@ -2,9 +2,11 @@
     --white: #f4f4f4;
     --bg: #000000;
     --maincolor: #f4f4f4;
+    --important: #ff9595;
+    --slight: #696969;
 } 
 
-body {
+main {
     opacity: 0;
     transition: opacity 500ms;
 }
@@ -59,6 +61,16 @@ h2 {
 p {
     font-size: 1.5rem;
     margin: 1rem;
+}
+
+p.important {
+    position: absolute;
+    font-size: 0.75rem;
+    color: var(--important);
+    bottom: 3vh;
+    left: 50%;
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
 }
 
 p.i {
@@ -125,10 +137,22 @@ button:hover {
 }
 
 #countdown {
-    font-size: 3rem;
+    font-size: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+#version {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-size: 0.5rem;
+    color: var(--slight);
+}
+
+html {
+  font-size: clamp(12px, 8vw, 30px);
 }
