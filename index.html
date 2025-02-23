@@ -22,15 +22,16 @@
     </head>
 <body>
 
-<div id="version">Beta v1.0</div>
+<div id="wave" alt="">
 
 <main class="content">
 
 <div id="main_menu">
     <h1>Tankesvøm</h1>
+    <div id="version">Beta v1.0</div>
     <h2>et imaginært stevne</h2>
     <button onclick="change_menu('selection_area');">>>> start >>></button>
-    <p class="important">denne opplevelsen krever lyd</p>
+    <p class="important">Denne opplevelsen krever lyd</p>
 </div>
 <div id="selection_area">
     <p class="i">Hva ønsker du å svømme?</p>
@@ -56,7 +57,10 @@
 
 <script type="text/javascript">
 
-const startSound = new Audio("assets/audio/swimmingStart.mp3");
+//Defaults
+const startSound = new Audio("assets/audio/takeMarks.mp3");
+const waterNoise = new Audio("assets/audio/waterNoise.mp3");
+let noiseOn = false;
 
 let area = "main_menu";
 let timerOn;
@@ -65,6 +69,17 @@ let start;
 
 let strPlaceholder = "[100m cr/fly/ry/br/im]";
 let timePlaceholder = "[01,03.42]";
+
+//Modifiers
+let intermissionTime;
+let fluteTime;
+let onMarksTime;
+let beepTime;
+
+let userEvent;
+let userTime;
+
+let showTimer = true;
 
 document.getElementById("strInput").placeholder = strPlaceholder;
 document.getElementById("timeInput").placeholder = timePlaceholder;
@@ -83,6 +98,11 @@ document.getElementById("timeInput").placeholder = timePlaceholder;
         fade_out();
         setTimeout(() => menu_logic(menu), 500);
         setTimeout(fade_in, 500);
+        if (!noiseOn) {
+            waterNoise.loop = true;
+            waterNoise.play();
+            noiseOn = true;
+        }
     }
 
     function menu_logic(menu) {
@@ -92,8 +112,8 @@ document.getElementById("timeInput").placeholder = timePlaceholder;
         if (area === "intermission") {
             setTimeout(fade_out, 2000);
             setTimeout(() => startSound.play(), 2250);
-            setTimeout(() => document.querySelector('main').style.transition = "opacity 0ms", 16500);
-            setTimeout(() => change_menu("stop_area"), 16200);
+            setTimeout(() => change_menu("stop_area"), 3200);
+            setTimeout(() => document.querySelector('main').style.transition = "opacity 0ms", 3500);
         }
         if (area === "stop_area") {
             start_timer();
