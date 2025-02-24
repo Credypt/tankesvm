@@ -1,10 +1,10 @@
 {
-  "name": "title",
-  "short_name": "title",
+  "name": "Tankesvøm",
+  "short_name": "Tankesvøm",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#1e81b0",
-  "theme_color": "#76b5c5",
+  "background_color": "#0d081b",
+  "theme_color": "#0d081b",
   "orientation": "portrait-primary",
   "icons": [
     {
